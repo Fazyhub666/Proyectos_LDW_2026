@@ -8,8 +8,13 @@
     :root {
       color-scheme: light;
       font-family: Inter, "Segoe UI", Arial, sans-serif;
-      color: #17212b;
-      background: #fff;
+      color: #101828;
+      background: #f3f7fc;
+      --navy: #102b52;
+      --blue: #1d63d8;
+      --pale-blue: #edf4fd;
+      --line: #d7e1ef;
+      --muted: #596a81;
       font-synthesis: none;
       text-rendering: optimizeLegibility;
     }
@@ -22,51 +27,55 @@
       min-width: 320px;
       min-height: 100vh;
       margin: 0;
-      background: #fff;
+      background: #f3f7fc;
     }
 
     main {
-      width: min(100% - 40px, 960px);
+      width: min(100% - 40px, 1100px);
       margin: 0 auto;
-      padding: 72px 0;
+      padding: 64px 0 80px;
     }
 
     .eyebrow {
       margin: 0 0 10px;
-      color: #4386bb;
+      color: var(--blue);
       font-size: 0.78rem;
       font-weight: 700;
-      letter-spacing: 0.12em;
       text-transform: uppercase;
     }
 
     h1 {
       margin: 0;
       font-size: clamp(2rem, 5vw, 2.7rem);
-      letter-spacing: -0.045em;
+      color: var(--navy);
+      letter-spacing: 0;
     }
 
     .intro {
       margin: 12px 0 30px;
-      color: #596773;
+      color: var(--muted);
       line-height: 1.6;
     }
 
     .table-wrap {
       overflow-x: auto;
-      border: 1px solid #dce8f1;
-      border-radius: 12px;
+      border: 1px solid var(--line);
+      border-top: 5px solid var(--blue);
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: 0 14px 36px rgb(16 43 82 / 8%);
     }
 
     table {
       width: 100%;
-      min-width: 600px;
+      min-width: 760px;
       border-collapse: collapse;
+      table-layout: fixed;
       text-align: left;
     }
 
     thead {
-      background: #eaf5fc;
+      background: var(--navy);
     }
 
     th,
@@ -75,32 +84,84 @@
     }
 
     th {
-      color: #20394c;
+      color: #fff;
       font-size: 0.82rem;
       font-weight: 700;
-      letter-spacing: 0.04em;
+      letter-spacing: 0;
+      text-transform: uppercase;
     }
+
+    th:nth-child(1) { width: 19%; }
+    th:nth-child(2) { width: 22%; }
+    th:nth-child(3) { width: 39%; }
+    th:nth-child(4) { width: 20%; }
 
     td {
-      border-top: 1px solid #e8eef3;
+      border-top: 1px solid var(--line);
+      vertical-align: middle;
     }
 
-    .empty-state {
-      padding: 28px 18px;
-      color: #596773;
-      text-align: center;
+    tbody tr {
+      transition: background-color 150ms ease;
+    }
+
+    tbody tr:nth-child(even) {
+      background: #f5f8fd;
+    }
+
+    tbody tr:hover {
+      background: #e8f1ff;
+    }
+
+    td:first-child {
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 13px;
+      border: 1px solid var(--blue);
+      border-radius: 6px;
+      background: var(--blue);
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background-color 150ms ease, border-color 150ms ease, transform 150ms ease;
+    }
+
+    a:hover {
+      border-color: #0c3f98;
+      background: #0c3f98;
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    a::after {
+      content: "↗";
+      font-size: 0.9em;
+    }
+
+    a:focus-visible {
+      outline: 3px solid #84aef0;
+      outline-offset: 3px;
     }
 
     @media (max-width: 600px) {
       main {
-        width: min(100% - 28px, 960px);
-        padding: 48px 0;
+        width: min(100% - 28px, 1100px);
+        padding: 48px 0 60px;
       }
 
       th,
       td {
         padding: 12px;
       }
+
     }
   </style>
 </head>
@@ -108,7 +169,7 @@
   <main>
     <p class="eyebrow">Registro de los proyectos realizados por nuestros estudiantes.</p>
     <h1>PROYECTOS LABORATORIO DE DISEÑO WEB 5°3°</h1>
-    <p class="intro">Consulta los datos de cada alumno, su tema y el enlace correspondiente.</p>
+    <p class="intro">Consultá los proyectos de cada alumno, su tema y el enlace correspondiente.</p>
 
     <div class="table-wrap">
       <table>
@@ -122,8 +183,97 @@
         </thead>
         <tbody>
           <tr>
-            <td class="empty-state" colspan="3">No hay datos cargados todavía.</td>
+            <td>Santino Laudati</td>
+            <td>Team T Launcher</td>
+            <td>Lanzador de juegos de nuestra empresa Team T.</td>
+            <td><a href="https://example.com" target="_blank" rel="noopener noreferrer">Ver proyecto</a></td>
           </tr>
+          <tr>
+            <td>Dante Iglesias</td>
+            <td>Team T Launcher</td>
+            <td>Lanzador de juegos de nuestra empresa Team T.</td>
+            <td><a href="https://example.com" target="_blank" rel="noopener noreferrer">Ver proyecto</a></td>
+          </tr>
+          <tr>
+            <td>Aramis Demaria</td>
+            <td>Sitio web para reservar tus mesovichs</td>
+            <td>Pagina para reservar mesas en NONSTOP.</td>
+            <td><a href="https://example.com" target="_blank" rel="noopener noreferrer">Ver proyecto</a></td>
+          </tr>
+          <tr>
+            <td>Ulises Ferrari</td>
+            <td>EESTfix</td>
+            <td>Sistema web para reportar, gestionar y realizar el seguimiento de problemas dentro de la institución educativa.</td>
+            <td><a href="https://example.com" target="_blank" rel="noopener noreferrer">Ver proyecto</a></td>
+          </tr>
+          <tr>
+            <td>Lucas Del Pino De Magui</td>
+            <td>EESTfix</td>
+            <td>Sistema web para reportar, gestionar y realizar el seguimiento de problemas dentro de la institución educativa.</td>
+            <td><a href="https://example.com" target="_blank" rel="noopener noreferrer">Ver proyecto</a></td>
+          </tr>
+          <tr>
+            <td>Leonel De Armas</td>
+            <td>EESTfix</td>
+            <td>Sistema web para reportar, gestionar y realizar el seguimiento de problemas dentro de la institución educativa.</td>
+            <td><a href="https://example.com" target="_blank" rel="noopener noreferrer">Ver proyecto</a></td>
+          </tr>
+          <tr>
+            <td>Benjamin Hlynczuk</td>
+            <td>Deltahub</td>
+            <td>Web destinada a la comunidad del videojuego "Deltarune", con el objetivo de que los usuarios puedan socializar, subir y descargar contenido personalizado y compartir su arte.</td>
+            <td><a href="https://example.com" target="_blank" rel="noopener noreferrer">Ver proyecto</a></td>
+          </tr>
+          <tr>
+            <td>Julian Fricker</td>
+            <td>Deltahub</td>
+            <td>Web destinada a la comunidad del videojuego "Deltarune", con el objetivo de que los usuarios puedan socializar, subir y descargar contenido personalizado y compartir su arte.</td>
+            <td><a href="https://example.com" target="_blank" rel="noopener noreferrer">Ver proyecto</a></td>
+          </tr>
+          <tr>
+            <td>Luca Di Guglielmi</td>
+            <td>La mismisima pagina</td>
+            <td>Sitio web similar a duolingo que te de ejercicios de diferentes temas logicos como un sistema de progresion.</td>
+            <td><a href="https://example.com" target="_blank" rel="noopener noreferrer">Ver proyecto</a></td>
+          </tr>
+          <tr>
+            <td>Teo Laguna</td>
+            <td>La mismisima pagina</td>
+            <td>Sitio web similar a duolingo que te de ejercicios de diferentes temas logicos como un sistema de progresion.</td>
+            <td><a href="https://example.com" target="_blank" rel="noopener noreferrer">Ver proyecto</a></td>
+          </tr>
+          <tr>
+            <td>Malek Cheheid</td>
+            <td>Ucrania360</td>
+            <td>Web informativa imparcial sobre el conflicto geopolitico de la guerra Ucrania.</td>
+            <td><a href="https://example.com" target="_blank" rel="noopener noreferrer">Ver proyecto</a></td>
+          </tr>
+          <tr>
+            <td>Martina Araujo</td>
+            <td>OnBeat</td>
+            <td>Pagina web donde las personas podran interactuar con distintos instrumentos musicales, para reproducir sus sonidos.</td>
+            <td><a href="https://example.com" target="_blank" rel="noopener noreferrer">Ver proyecto</a></td>
+          </tr>
+          <tr>
+            <td>Thiago Goya</td>
+            <td>OnBeat</td>
+            <td>Pagina web donde las personas podran interactuar con distintos instrumentos musicales, para reproducir sus sonidos.</td>
+            <td><a href="https://example.com" target="_blank" rel="noopener noreferrer">Ver proyecto</a></td>
+          </tr>
+          <tr>
+            <td>Lucas Benitez</td>
+            <td>ExplorAR</td>
+            <td>Sitio web dedicado al turismo en Argentina.</td>
+            <td><a href="https://example.com" target="_blank" rel="noopener noreferrer">Ver proyecto</a></td>
+          </tr>
+          <tr>
+            <td>Mikaela Batirola</td>
+            <td>ExplorAR</td>
+            <td>Sitio web dedicado al turismo en Argentina.</td>
+            <td><a href="https://example.com" target="_blank" rel="noopener noreferrer">Ver proyecto</a></td>
+          </tr>
+          
+
         </tbody>
       </table>
     </div>
